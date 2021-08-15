@@ -17,12 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Parameter
-Route::get('/user/{id}', function ($id) {
-    return 'User ' . $id;
-});
+Route::prefix('account')->group(function () {
+    Route::prefix('setting')->group(function() {
+        Route::get('/change-password', function () {
+            return 'change-password';
+        });
 
-// Parameter Optional
-Route::get('/profile/{id?}', function ($id = null) {
-    return 'Profile ' . $id;
+        Route::get('/profile', function () {
+            return 'profile';
+        });
+
+        Route::get('/photo', function () {
+            return 'photo';
+        });
+    });
+
+    Route::get('follower', function() {
+        return 'follower';
+    });
 });
