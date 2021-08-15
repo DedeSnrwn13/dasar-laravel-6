@@ -40,3 +40,12 @@ Route::prefix('account')->group(function () {
         return 'follower';
     });
 });
+
+// Route Alias Name
+Route::get('redirect', function() {
+    return redirect()->route('homepage');
+});
+
+Route::get('home/landing', function() {
+    return 'Landing';
+})->name('homepage');
