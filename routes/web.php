@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +15,14 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Parameter
+Route::get('/user/{id}', function ($id) {
+    return 'User ' . $id;
+});
+
+// Parameter Optional
+Route::get('/profile/{id?}', function ($id = null) {
+    return 'Profile ' . $id;
 });
