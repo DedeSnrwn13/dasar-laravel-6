@@ -30,6 +30,10 @@ Route::prefix('account')->group(function () {
         Route::get('/photo', function () {
             return 'photo';
         });
+
+        Route::get('/delete', function () {
+            return 'delete';
+        });
     });
 
     Route::get('follower', function() {
