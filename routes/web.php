@@ -13,43 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::prefix('account')->group(function () {
-    Route::prefix('setting')->group(function() {
-        Route::get('/change-password', function () {
-            return 'change-password';
-        });
+// Route View dan Redirect
+Route::view('/', 'welcome');
 
-        Route::get('/profile', function () {
-            return 'profile';
-        });
-
-        Route::get('/photo', function () {
-            return 'photo';
-        });
-
-        Route::get('/delete', function () {
-            return 'delete';
-        });
-    });
-
-    Route::get('follower', function() {
-        return 'follower';
-    });
-});
-
-// Route Alias Name
-Route::get('redirect', function() {
-    return redirect()->route('homepage');
-});
-
-Route::get('home/landing', function() {
-    return 'Landing';
-})->name('homepage');
-
-// Route Resource dan API Resource
-Route::resource('article', 'ArticleController');
-Route::apiResource('artikel', 'ArtikelController');
+Route::redirect('/disini', '/kesana', 301);
