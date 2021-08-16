@@ -49,3 +49,7 @@ Route::get('redirect', function() {
 Route::get('home/landing', function() {
     return 'Landing';
 })->name('homepage');
+
+// Route Resource dan API Resource
+Route::resource('article', 'ArticleController');
+Route::apiResource('artikel', 'ArtikelController');
