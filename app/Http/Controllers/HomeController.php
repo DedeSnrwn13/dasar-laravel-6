@@ -3,20 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubscriptionFormRequest;
+use App\Mail\UserVerificationMail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $data = [
-            'posts' => [
-               ['id' => 1, 'title' => 'Ini 1'],
-               ['id' => 2, 'title' => 'Ini 2'],
-               ['id' => 3, 'title' => 'Ini 3']
-            ]
-        ];
+        Mail::to('sunarwan@belajar.test')->send(new UserVerificationMail());
 
-        return response()->json($data);
+        return 'Email terkirim';
     }
 
     public function store(SubscriptionFormRequest $request)
