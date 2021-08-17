@@ -17,3 +17,5 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::post('/subscribe', 'HomeController@store')->name('subscribe');
 
+Route::get('/other', 'HomeController@other')->name('other');
+

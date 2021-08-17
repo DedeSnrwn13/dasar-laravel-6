@@ -13,6 +13,12 @@ class HomeController extends Controller
 
     public function store(SubscriptionFormRequest $request)
     {
-        return 'Berhasil Langganan!';
+        return redirect()->route('other');
+        // return back();
+    }
+
+    public function other()
+    {
+        return 'Other Route';
     }
 }
