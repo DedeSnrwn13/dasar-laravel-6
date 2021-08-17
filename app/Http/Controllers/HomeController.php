@@ -8,7 +8,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $data = [
+            'posts' => [
+               ['id' => 1, 'title' => 'Ini 1'],
+               ['id' => 2, 'title' => 'Ini 2'],
+               ['id' => 3, 'title' => 'Ini 3']
+            ]
+        ];
+
+        return response()->json($data);
     }
 
     public function store(SubscriptionFormRequest $request)
