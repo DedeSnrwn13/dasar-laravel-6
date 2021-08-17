@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\SubscriptionFormRequest;
 
 class HomeController extends Controller
 {
@@ -11,12 +11,8 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function store(Request $request)
+    public function store(SubscriptionFormRequest $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email'
-        ]);
-
-        return dd($request->email);
+        return 'Berhasil Langganan!';
     }
 }
