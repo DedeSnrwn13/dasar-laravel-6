@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user/{username}', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::post('/todo', 'HomeController@store')->name('todo.store');
 

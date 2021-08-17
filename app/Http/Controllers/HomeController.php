@@ -6,16 +6,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index($username)
+    public function index()
     {
-        return view('user.index', [
-            'username' => $username,
-            'fullName' => 'Dede Sunarwan'
-        ]);
+        return view('todo');
     }
 
     public function store(Request $request)
     {
-
+        return dd($request->todo);
     }
 }
