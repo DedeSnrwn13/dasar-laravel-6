@@ -8,11 +8,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('todo');
+        return view('home');
     }
 
     public function store(Request $request)
     {
-        return dd($request->todo);
+        $this->validate($request, [
+            'email' => 'required|email'
+        ]);
+
+        return dd($request->email);
     }
 }

@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::post('/todo', 'HomeController@store')->name('todo.store');
+Route::post('/subscribe', 'HomeController@store')->name('subscribe');
 
