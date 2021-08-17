@@ -13,8 +13,8 @@
             @csrf
 
             <div class="form-group">
-                <input type="text" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Masukkan email">
-                
+                <input type="text" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Masukkan email" value="{{ old('email') }}">
+
                 @if ($errors->has('email'))
                     <div class="invalid-feedback">
                         {{ $errors->first('email') }}
