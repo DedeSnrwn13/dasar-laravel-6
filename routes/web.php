@@ -13,8 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/user/{username}', 'HomeController@index');
 
-// Route View dan Redirect
-Route::view('/', 'welcome');
-
-Route::redirect('/disini', '/kesana', 301);
