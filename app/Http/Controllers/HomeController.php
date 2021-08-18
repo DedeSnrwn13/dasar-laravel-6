@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubscriptionFormRequest;
-use App\Mail\UserVerificationMail;
+use App\Mail\UserActivationMail;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        Mail::to('sunarwan@belajar.test')->send(new UserVerificationMail());
+        Mail::to('sunarwan@belajar.test')->send(new UserActivationMail());
 
         return 'Email terkirim';
     }
