@@ -10,9 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        Mail::to('sunarwan@belajar.test')->send(new UserActivationMail());
+        // Mail::to('sunarwan@belajar.test')->send(new UserActivationMail());
 
-        return 'Email terkirim';
+        return new UserActivationMail();
     }
 
     public function store(SubscriptionFormRequest $request)
