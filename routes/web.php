@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use Faker\Factory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::post('/subscribe', 'HomeController@store')->name('subscribe');
+Route::get('/seed', function(Post $post) {
+    $faker = Factory::create();
 
-Route::get('/other', 'HomeController@other')->name('other');
+    foreach (range(1,100) as $x) {
+        $post->create([
+            'title' => $faker->sentence(5),
+            'content' => $faker->sentence(30)
+        ]);
+    }
+});
 
