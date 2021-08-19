@@ -15,16 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PostController@index')->name('home');
 
-Route::get('/seed', function(Post $post) {
-    $faker = Factory::create();
 
-    foreach (range(1,100) as $x) {
-        $post->create([
-            'title' => $faker->sentence(5),
-            'content' => $faker->sentence(30)
-        ]);
-    }
-});
 
