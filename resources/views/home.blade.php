@@ -9,6 +9,12 @@
 </head>
 <body>
     <div class="container">
+        @php
+            $s = "12345";
+            $s[0] = "9";
+
+            echo $s;
+        @endphp
         <form action="{{ route('subscribe') }}" method="POST">
             @csrf
 

@@ -12,7 +12,9 @@ class HomeController extends Controller
     {
         // Mail::to('sunarwan@belajar.test')->send(new UserActivationMail());
 
-        return new UserActivationMail();
+        // return new UserActivationMail();
+
+        return view('home');
     }
 
     public function store(SubscriptionFormRequest $request)
