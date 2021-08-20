@@ -12,4 +12,8 @@ class Post extends Model
         'title',
         'content'
     ];
+
+    protected $dates = [
+        'published_at'
+    ];
 }

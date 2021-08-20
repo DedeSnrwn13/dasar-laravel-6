@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // $post = Post::where('is_published', false)->get();
-        // $post = Post::orderBy('id', 'desc')->get();
-        $post = Post::latest()->limit(2)->get();
+        $post = Post::find($request->id);
 
-        dd($post);
+
+
+        return view('post.show', [
+            'post' => $post
+        ]);
     }
 }
