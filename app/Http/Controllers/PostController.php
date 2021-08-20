@@ -10,10 +10,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::take(10)->get();
+        // $post = Post::where('is_published', false)->get();
+        // $post = Post::orderBy('id', 'desc')->get();
+        $post = Post::latest()->limit(2)->get();
 
-        return view('post.index', [
-            'posts' => $posts
-        ]);
+        dd($post);
     }
 }
