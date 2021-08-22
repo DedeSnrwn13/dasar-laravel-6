@@ -52,4 +52,12 @@ class User extends Authenticatable
 
         return $this->first_name;
     }
+
+    public function scopeActive($query) {
+        return $query->where('active', true);
+    }
+
+    public function scopeAgeGreaterThan($query, $age) {
+        return $query->where('age', '>=', $age);
+    }
 }

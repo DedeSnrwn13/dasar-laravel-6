@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        $user = User::where('username', 'dede')->first();
+        $user = User::active()->ageGreaterThan(17)->get();
 
-        return $user->getFirstNameOrUsername();
+        dd($user);
     }
 }
