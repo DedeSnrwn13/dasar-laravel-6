@@ -60,4 +60,9 @@ class User extends Authenticatable
     public function scopeAgeGreaterThan($query, $age) {
         return $query->where('age', '>=', $age);
     }
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'username';
+    // }
 }
