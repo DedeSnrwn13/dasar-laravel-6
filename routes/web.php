@@ -1,8 +1,7 @@
 <?php
 
-use App\Post;
-use Faker\Factory;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('', 'HomeController@index');
+Route::view('/', 'home');
 
-Route::get('/user/{user}', 'HomeController@show');
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

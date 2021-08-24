@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $users = User::orderBy('username', $request->get('order', 'asc'))
-                        ->paginate($request->get('per-page', 1));
-
-        return view('user.index', [
-            'users' => $users
-        ]);
+        $this->middleware('auth');
     }
 
-    public function show(User $user)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        dd($user);
+        return view('home');
     }
 }
