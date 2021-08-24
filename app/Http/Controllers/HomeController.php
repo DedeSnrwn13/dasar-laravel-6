@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::active()->ageGreaterThan(17)->get();
+        $users = User::paginate($request->get('per-page', 1));
 
-        dd($user);
+        return view('user.index', [
+            'users' => $users
+        ]);
     }
 
     public function show(User $user)
