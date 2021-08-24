@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::paginate($request->get('per-page', 1));
+        $users = User::orderBy('username', $request->get('order', 'asc'))
+                        ->paginate($request->get('per-page', 1));
 
         return view('user.index', [
             'users' => $users
